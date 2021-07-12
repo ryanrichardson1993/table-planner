@@ -7,7 +7,7 @@ namespace TablePlanner
 {
     public class GuestsDataAccess
     {
-        public List<Guest> GetProductsFromCsv()
+        public List<Guest> GetGuestsFromCsv()
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
@@ -45,7 +45,7 @@ namespace TablePlanner
                     );
                 }
 
-                return guests;
+                return guests.Where(x => x.Coming).ToList();
             }
         }
     }

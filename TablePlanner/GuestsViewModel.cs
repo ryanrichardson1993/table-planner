@@ -52,14 +52,14 @@ namespace TablePlanner
 
         public GuestsViewModel(GuestsDataAccess guestsDataAccess)
         {
-            this._guestsDataAccess = guestsDataAccess;
+            _guestsDataAccess = guestsDataAccess;
             
             LoadFileCommand = new DelegateCommand(LoadFile);
         }
 
         private void LoadFile()
         {
-            Guests = _guestsDataAccess.GetProductsFromCsv();
+            Guests = _guestsDataAccess.GetGuestsFromCsv();
         }
     }
 }
