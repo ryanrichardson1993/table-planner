@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="TablePlanner.GuestCircle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TablePlanner"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="guestCircle">
+    <Grid>
+      <Ellipse Height="46" Width="46"
+               Grid.Column="0"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center">
+        <Ellipse.Style>
+          <Style TargetType="Ellipse">
+          <Style.Triggers>
+            <DataTrigger Binding="{Binding GuestIsDrinkingAlcohol, ElementName=guestCircle}" Value="True">
+              <Setter Property="Fill" Value="DarkGray"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding GuestIsDrinkingAlcohol, ElementName=guestCircle}" Value="False">
+              <Setter Property="Fill" Value="LightPink"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding GuestNeedsHighChair, ElementName=guestCircle}" Value="True">
+              <Setter Property="Fill" Value="LightSkyBlue"/>
+            </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </Ellipse.Style>
+      </Ellipse>
+      <TextBlock Text="{Binding Path=GuestName, ElementName=guestCircle}"
+                 Grid.Column="0"
+                 Grid.Row="0"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 FontSize="10"/>
+  </Grid>
+</UserControl>
